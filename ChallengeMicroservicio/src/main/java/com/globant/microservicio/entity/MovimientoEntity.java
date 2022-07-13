@@ -9,7 +9,7 @@ public class MovimientoEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idMovimiento;
 	
 	@Column
 	private LocalDate fecha;
@@ -22,13 +22,17 @@ public class MovimientoEntity {
 	
 	@Column
 	private double saldo;
+	
+	@ManyToOne(optional=false, cascade=CascadeType.PERSIST)
+	@JoinColumn(name="id_cuenta")
+	CuentaEntity cuentaEntity;
 
-	public Long getId() {
-		return id;
+	public Long getIdMovimiento() {
+		return idMovimiento;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdMovimiento(Long idMovimiento) {
+		this.idMovimiento = idMovimiento;
 	}
 
 	public LocalDate getFecha() {
@@ -62,4 +66,20 @@ public class MovimientoEntity {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+
+	public CuentaEntity getCuentaEntity() {
+		return cuentaEntity;
+	}
+
+	public void setCuentaEntity(CuentaEntity cuentaEntity) {
+		this.cuentaEntity = cuentaEntity;
+	}
+
+	@Override
+	public String toString() {
+		return "MovimientoEntity [idMovimiento=" + idMovimiento + ", fecha=" + fecha + ", tipoMovimiento="
+				+ tipoMovimiento + ", valor=" + valor + ", saldo=" + saldo + ", cuentaEntity=" + cuentaEntity + "]";
+	}
+	
+	
 }

@@ -5,10 +5,9 @@ import javax.persistence.*;
 @Entity
 public class ClienteEntity extends PersonaEntity {
 
-	@Id
+	//@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
+	private Long idCliente;
 
 	@Column
 	private String clienteId;
@@ -19,14 +18,13 @@ public class ClienteEntity extends PersonaEntity {
 	@Column
 	private String estado;
 
-	@Override
-	public Long getId() {
-		return id;
+	
+	public Long getIdCliente() {
+		return idCliente;
 	}
 
-	@Override
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
 	}
 
 	public String getClienteId() {

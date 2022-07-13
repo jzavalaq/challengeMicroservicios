@@ -2,7 +2,7 @@ version: '2'
 
 services:
   app:
-    image: 'demo-crud:latest'
+    image: 'challenge-microservicio:latest'
     build:
       context: .
     container_name: app

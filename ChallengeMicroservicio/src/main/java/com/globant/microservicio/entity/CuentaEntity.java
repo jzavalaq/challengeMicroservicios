@@ -8,7 +8,7 @@ public class CuentaEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idCuenta;
 
 	@Column
 	private String numeroCuenta;
@@ -20,13 +20,17 @@ public class CuentaEntity{
 	private String saldoInicial;
 	@Column
 	private String estado;
+	
+	@ManyToOne(optional=false, cascade=CascadeType.PERSIST)
+	@JoinColumn(name="id_persona")
+	private PersonaEntity personaEntity;
 
-	public Long getId() {
-		return id;
+	public Long getIdCuenta() {
+		return idCuenta;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdCuenta(Long idCuenta) {
+		this.idCuenta = idCuenta;
 	}
 
 	public String getNumeroCuenta() {
@@ -60,4 +64,13 @@ public class CuentaEntity{
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	public PersonaEntity getPersonaEntity() {
+		return personaEntity;
+	}
+
+	public void setPersonaEntity(PersonaEntity personaEntity) {
+		this.personaEntity = personaEntity;
+	}
+	
 }

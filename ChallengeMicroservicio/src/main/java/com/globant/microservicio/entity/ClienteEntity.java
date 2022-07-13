@@ -3,7 +3,6 @@ package com.globant.microservicio.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Cliente")
 public class ClienteEntity extends PersonaEntity {
 
 	@Id

@@ -3,37 +3,17 @@ package com.globant.microservicio.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Cliente")
 public class ClienteEntity extends PersonaEntity {
 
-	//@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCliente;
-
-	@Column
-	private String clienteId;
+//	@Id //	@GeneratedValue(strategy = GenerationType.IDENTITY) //	private Long idCliente;
 
 	@Column
 	private String contrasena;
 
 	@Column
-	private String estado;
+	private boolean estado;
 
-	
-	public Long getIdCliente() {
-		return idCliente;
-	}
-
-	public void setIdCliente(Long idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	public String getClienteId() {
-		return clienteId;
-	}
-
-	public void setClienteId(String clienteId) {
-		this.clienteId = clienteId;
-	}
 
 	public String getContrasena() {
 		return contrasena;
@@ -43,11 +23,11 @@ public class ClienteEntity extends PersonaEntity {
 		this.contrasena = contrasena;
 	}
 
-	public String getEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 }

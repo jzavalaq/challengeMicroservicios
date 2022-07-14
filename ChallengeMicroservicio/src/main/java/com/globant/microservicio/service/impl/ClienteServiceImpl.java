@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,7 +21,9 @@ import com.globant.microservicio.repository.ClienteRepository;
 import com.globant.microservicio.repository.CuentaRepository;
 import com.globant.microservicio.repository.MovimientoRepository;
 import com.globant.microservicio.service.ClienteService;
+
 @Service
+@Transactional
 public class ClienteServiceImpl extends GenericServiceImpl<ClienteEntity, Long> implements ClienteService {
 
 	@Autowired
@@ -39,7 +43,7 @@ public class ClienteServiceImpl extends GenericServiceImpl<ClienteEntity, Long> 
 	@Override
 	public List<EstadoCuentaDto> findReporteEntreFechas(LocalDate desde, LocalDate hasta) {
 		List<EstadoCuentaDto> respuesta = new ArrayList<EstadoCuentaDto>();
-		List<MovimientoEntity> movimientoEntities= movimientoRepository.findMovimientosEntreFechas(desde, hasta);
+		List<MovimientoEntity> movimientoEntities= movimientoRepository.findByFechaBetween(desde, hasta);
 		for (MovimientoEntity movimientoEntity : movimientoEntities) {
 			System.out.println("movimientoEntity:"+movimientoEntity);
 		}

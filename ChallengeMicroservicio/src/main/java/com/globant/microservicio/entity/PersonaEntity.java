@@ -7,16 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "Persona")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class PersonaEntity {
+@MappedSuperclass
+public abstract class PersonaEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idPersona;
 	
 	@Column
 	private String nombre;
@@ -36,12 +35,13 @@ public class PersonaEntity {
 	@Column
 	private String telefono;
 
-	public Long getId() {
-		return id;
+
+	public Long getIdPersona() {
+		return idPersona;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdPersona(Long idPersona) {
+		this.idPersona = idPersona;
 	}
 
 	public String getNombre() {

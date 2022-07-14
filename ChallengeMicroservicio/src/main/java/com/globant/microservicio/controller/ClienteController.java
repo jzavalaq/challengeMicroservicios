@@ -58,7 +58,7 @@ public class ClienteController {
 		return new ResponseEntity<ClienteEntity>(cliente, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/clientes/estadoCuenta/{id}")
+	@GetMapping(value = "/clientes/estadoCuenta/{desde}/{hasta}")
 	public ResponseEntity<?>  getEstadocuenta(
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate desde,
             @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate hasta

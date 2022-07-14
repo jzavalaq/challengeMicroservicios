@@ -1,5 +1,7 @@
 package com.globant.microservicio.service.impl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import com.globant.microservicio.repository.CuentaRepository;
 import com.globant.microservicio.service.CuentaService;
 
 @Service
+@Transactional
 public class CuentaServiceImpl extends GenericServiceImpl<CuentaEntity, Long> implements CuentaService {
 
 	@Autowired

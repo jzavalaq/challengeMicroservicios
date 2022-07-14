@@ -19,11 +19,11 @@ public class CuentaEntity{
 	@Column
 	private String saldoInicial;
 	@Column
-	private String estado;
+	private boolean estado;
 	
 	@ManyToOne(optional=false, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="id_persona")
-	private PersonaEntity personaEntity;
+	private ClienteEntity clienteEntity;
 
 	public Long getIdCuenta() {
 		return idCuenta;
@@ -57,20 +57,21 @@ public class CuentaEntity{
 		this.saldoInicial = saldoInicial;
 	}
 
-	public String getEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 
-	public PersonaEntity getPersonaEntity() {
-		return personaEntity;
+	public ClienteEntity getClienteEntity() {
+		return clienteEntity;
 	}
 
-	public void setPersonaEntity(PersonaEntity personaEntity) {
-		this.personaEntity = personaEntity;
+	public void setClienteEntity(ClienteEntity clienteEntity) {
+		this.clienteEntity = clienteEntity;
 	}
+
 	
 }

@@ -12,8 +12,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MovimientoRepository extends JpaRepository<MovimientoEntity, Long> {
 
-	@Query(value = "SELECT * FROM movimiento WHERE fecha >= :desde AND fecha <= :hasta" , 
-			nativeQuery = true)
-	List<MovimientoEntity> findMovimientosEntreFechas(LocalDate desde, LocalDate hasta);
+//	@Query(value = "SELECT * FROM movimiento WHERE fecha >= :desde AND fecha <= :hasta" , 
+//			nativeQuery = true)
+//	List<MovimientoEntity> findMovimientosEntreFechas(LocalDate desde, LocalDate hasta);
+
+	List<MovimientoEntity> findByFechaBetween(LocalDate desde, LocalDate hasta);
 
 }
